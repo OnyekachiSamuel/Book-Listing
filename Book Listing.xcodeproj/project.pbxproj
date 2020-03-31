@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		DD81F5C524340805002EA5F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F5C424340805002EA5F4 /* AppDelegate.swift */; };
 		DD81F5C724340805002EA5F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F5C624340805002EA5F4 /* SceneDelegate.swift */; };
-		DD81F5C924340805002EA5F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F5C824340805002EA5F4 /* ViewController.swift */; };
-		DD81F5CC24340805002EA5F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD81F5CA24340805002EA5F4 /* Main.storyboard */; };
+		DD81F5C924340805002EA5F4 /* BookListingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F5C824340805002EA5F4 /* BookListingController.swift */; };
 		DD81F5CE24340808002EA5F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD81F5CD24340808002EA5F4 /* Assets.xcassets */; };
 		DD81F5D124340808002EA5F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD81F5CF24340808002EA5F4 /* LaunchScreen.storyboard */; };
 		DD81F5DC24340808002EA5F4 /* Book_ListingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F5DB24340808002EA5F4 /* Book_ListingTests.swift */; };
@@ -30,8 +29,7 @@
 		DD81F5C124340805002EA5F4 /* Book Listing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book Listing.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD81F5C424340805002EA5F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD81F5C624340805002EA5F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DD81F5C824340805002EA5F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DD81F5CB24340805002EA5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD81F5C824340805002EA5F4 /* BookListingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListingController.swift; sourceTree = "<group>"; };
 		DD81F5CD24340808002EA5F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD81F5D024340808002EA5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD81F5D224340808002EA5F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,13 +77,9 @@
 		DD81F5C324340805002EA5F4 /* Book Listing */ = {
 			isa = PBXGroup;
 			children = (
-				DD81F5C424340805002EA5F4 /* AppDelegate.swift */,
-				DD81F5C624340805002EA5F4 /* SceneDelegate.swift */,
-				DD81F5C824340805002EA5F4 /* ViewController.swift */,
-				DD81F5CA24340805002EA5F4 /* Main.storyboard */,
-				DD81F5CD24340808002EA5F4 /* Assets.xcassets */,
-				DD81F5CF24340808002EA5F4 /* LaunchScreen.storyboard */,
-				DD81F5D224340808002EA5F4 /* Info.plist */,
+				DD81F5E62434085E002EA5F4 /* Resources */,
+				DD81F5ED243408C0002EA5F4 /* Supporting Files */,
+				DD81F5E72434086B002EA5F4 /* Source */,
 			);
 			path = "Book Listing";
 			sourceTree = "<group>";
@@ -97,6 +91,137 @@
 				DD81F5DD24340808002EA5F4 /* Info.plist */,
 			);
 			path = "Book ListingTests";
+			sourceTree = "<group>";
+		};
+		DD81F5E62434085E002EA5F4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD81F5CD24340808002EA5F4 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD81F5E72434086B002EA5F4 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				DD81F5E824340878002EA5F4 /* App */,
+				DD81F5E924340883002EA5F4 /* Core */,
+				DD81F5EA2434088E002EA5F4 /* Data */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		DD81F5E824340878002EA5F4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DD81F5EE243408D7002EA5F4 /* Global */,
+				DD81F5EF243408E4002EA5F4 /* Screens */,
+				DD81F5F0243408FF002EA5F4 /* Utilities */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DD81F5E924340883002EA5F4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DD81F5EB243408A6002EA5F4 /* ViewModel */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		DD81F5EA2434088E002EA5F4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DD81F5EC243408B2002EA5F4 /* Model */,
+				DD81F5F224340BFD002EA5F4 /* Service */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DD81F5EB243408A6002EA5F4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD81F5EC243408B2002EA5F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD81F5ED243408C0002EA5F4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD81F5D224340808002EA5F4 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DD81F5EE243408D7002EA5F4 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				DD81F5C424340805002EA5F4 /* AppDelegate.swift */,
+				DD81F5C624340805002EA5F4 /* SceneDelegate.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		DD81F5EF243408E4002EA5F4 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				DD81F5F124340B4E002EA5F4 /* BookListing */,
+				DD81F5F324340C25002EA5F4 /* LaunchScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		DD81F5F0243408FF002EA5F4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DD81F5F124340B4E002EA5F4 /* BookListing */ = {
+			isa = PBXGroup;
+			children = (
+				DD81F5F424340C62002EA5F4 /* ViewController */,
+				DD81F5F524340C71002EA5F4 /* Views */,
+			);
+			path = BookListing;
+			sourceTree = "<group>";
+		};
+		DD81F5F224340BFD002EA5F4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		DD81F5F324340C25002EA5F4 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD81F5CF24340808002EA5F4 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		DD81F5F424340C62002EA5F4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DD81F5C824340805002EA5F4 /* BookListingController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DD81F5F524340C71002EA5F4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,7 +307,6 @@
 			files = (
 				DD81F5D124340808002EA5F4 /* LaunchScreen.storyboard in Resources */,
 				DD81F5CE24340808002EA5F4 /* Assets.xcassets in Resources */,
-				DD81F5CC24340805002EA5F4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD81F5C924340805002EA5F4 /* ViewController.swift in Sources */,
+				DD81F5C924340805002EA5F4 /* BookListingController.swift in Sources */,
 				DD81F5C524340805002EA5F4 /* AppDelegate.swift in Sources */,
 				DD81F5C724340805002EA5F4 /* SceneDelegate.swift in Sources */,
 			);
@@ -225,14 +349,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DD81F5CA24340805002EA5F4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DD81F5CB24340805002EA5F4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DD81F5CF24340808002EA5F4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -364,7 +480,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YT3VFVK232;
-				INFOPLIST_FILE = "Book Listing/Info.plist";
+				INFOPLIST_FILE = "Book Listing/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -382,7 +498,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YT3VFVK232;
-				INFOPLIST_FILE = "Book Listing/Info.plist";
+				INFOPLIST_FILE = "Book Listing/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
