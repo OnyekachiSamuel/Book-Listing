@@ -13,6 +13,10 @@
 		DD81F5CE24340808002EA5F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD81F5CD24340808002EA5F4 /* Assets.xcassets */; };
 		DD81F5D124340808002EA5F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD81F5CF24340808002EA5F4 /* LaunchScreen.storyboard */; };
 		DD81F5DC24340808002EA5F4 /* Book_ListingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F5DB24340808002EA5F4 /* Book_ListingTests.swift */; };
+		DD81F62524347740002EA5F4 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F62424347740002EA5F4 /* Author.swift */; };
+		DD81F62724347790002EA5F4 /* Narrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F62624347790002EA5F4 /* Narrator.swift */; };
+		DD81F62924347947002EA5F4 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F62824347947002EA5F4 /* Book.swift */; };
+		DD81F62B24347992002EA5F4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F62A24347992002EA5F4 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		DD81F5D724340808002EA5F4 /* Book ListingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Book ListingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD81F5DB24340808002EA5F4 /* Book_ListingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_ListingTests.swift; sourceTree = "<group>"; };
 		DD81F5DD24340808002EA5F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD81F62424347740002EA5F4 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		DD81F62624347790002EA5F4 /* Narrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Narrator.swift; sourceTree = "<group>"; };
+		DD81F62824347947002EA5F4 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		DD81F62A24347992002EA5F4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +156,10 @@
 		DD81F5EC243408B2002EA5F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DD81F62424347740002EA5F4 /* Author.swift */,
+				DD81F62824347947002EA5F4 /* Book.swift */,
+				DD81F62A24347992002EA5F4 /* Item.swift */,
+				DD81F62624347790002EA5F4 /* Narrator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -324,8 +336,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD81F62724347790002EA5F4 /* Narrator.swift in Sources */,
 				DD81F5C924340805002EA5F4 /* BookListingController.swift in Sources */,
+				DD81F62924347947002EA5F4 /* Book.swift in Sources */,
 				DD81F5C524340805002EA5F4 /* AppDelegate.swift in Sources */,
+				DD81F62B24347992002EA5F4 /* Item.swift in Sources */,
+				DD81F62524347740002EA5F4 /* Author.swift in Sources */,
 				DD81F5C724340805002EA5F4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
