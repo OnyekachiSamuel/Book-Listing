@@ -17,11 +17,11 @@ protocol BookListingViewModelDelegate: NSObject {
 class BookListingViewModel {
     
     public private(set) var bookListingCellViewModel: [BookListingCellViewModel] = []
-    private let client: APIClient
+    private let client: APIClientProtocol
     weak var delegate: BookListingViewModelDelegate?
     
     
-    init(client: APIClient = APIClient()) {
+    init(client: APIClientProtocol = APIClient()) {
         self.client = client
     }
     
