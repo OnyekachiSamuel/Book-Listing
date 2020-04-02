@@ -10,4 +10,7 @@ import Foundation
 
 struct Book: Decodable {
     let items: [Item]
+    let nextPageToken: String
+    let totalCount: Int
+    let query: String
 }
