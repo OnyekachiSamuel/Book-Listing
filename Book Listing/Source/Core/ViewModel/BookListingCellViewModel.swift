@@ -20,7 +20,7 @@ class BookListingCellViewModel {
     }
     
     var narrators: String {
-        var names = "By: "
+        var names = "With: "
         let narratorNames = item.narrators.map { $0.name }.joined(separator: ", ")
         names.append(narratorNames)
         return names
