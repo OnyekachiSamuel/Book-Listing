@@ -16,7 +16,7 @@ enum APIError: Error {
     var reason: String {
         switch self {
             case .unknownError:
-                return "An error occured"
+                return "An unknown error occured"
             case .serverError:
                 return "Internal server error occured"
             case .noData:
@@ -25,7 +25,11 @@ enum APIError: Error {
     }
 }
 
-class APIClient {
+protocol APIClientProtocol {
+    func fetchBookList(with requestBuilder: RequestBuilder, completion: @escaping (Result<Book, APIError>) -> Void)
+}
+
+class APIClient: APIClientProtocol {
     
     private let session: URLSession
     
