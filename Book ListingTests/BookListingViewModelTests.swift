@@ -28,6 +28,14 @@ class BookListingViewModelTests: XCTestCase {
         viewModel = nil
     }
     
+    func testHeaderTitle() throws {
+        XCTAssertEqual(viewModel?.headerTitle, "Query: Harry")
+    }
+    
+    func testAlertTitle() throws {
+        XCTAssertEqual(viewModel?.alertTitle, "Error Log")
+    }
+    
     func testFailedRequest() throws {
         viewModel?.fetchBookList()
         XCTAssertEqual(viewModel?.bookListingCellViewModel.count, 0)
