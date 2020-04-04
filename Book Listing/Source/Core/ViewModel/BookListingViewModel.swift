@@ -21,7 +21,6 @@ class BookListingViewModel {
     public private(set) var bookListingCellViewModel: [BookListingCellViewModel] = []
     
     private let client: APIClientProtocol
-    private var isFetchInProgress = false
     private var nextPageToken = ""
     
     internal let alertTitle = "Error Log"
@@ -32,10 +31,6 @@ class BookListingViewModel {
     }
     
     func fetchBookList() {
-        
-        guard !isFetchInProgress else { return }
-        
-        isFetchInProgress = true
         
         let requestBuilder: RequestBuilder
         var parameters = [Parameter(key: "query", value: "harry"),
@@ -52,7 +47,6 @@ class BookListingViewModel {
             guard let self = self else { return }
             switch result {
                 case .success(let book):
-                    self.isFetchInProgress = false
                     self.nextPageToken = book.nextPageToken
                     self.bookListingCellViewModel = book.items.map { BookListingCellViewModel($0) }
                     DispatchQueue.main.async {
