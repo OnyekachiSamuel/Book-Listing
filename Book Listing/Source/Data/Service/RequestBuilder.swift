@@ -8,21 +8,22 @@
 
 import Foundation
 
-typealias Parameters = [String: String]
+struct Parameter {
+    let key: String
+    let value: String
+}
 
 struct RequestBuilder {
-    private let parameters: Parameters
+    private let parameters: [Parameter]
     private let baseURL = URL(string: "https://api.storytel.net/search?")!
     
-    init(parameters: Parameters) {
+    init(parameters: [Parameter]) {
         self.parameters = parameters
     }
     
     func getURLRequest() -> URLRequest? {
         var urlComponent = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)!
-        let queryItems = parameters.map { (key, value) in
-            URLQueryItem(name: key, value: value)
-        }
+        let queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
         urlComponent.queryItems = queryItems
         guard let url = urlComponent.url else { return nil }
         let urlRequest = URLRequest(url: url)
