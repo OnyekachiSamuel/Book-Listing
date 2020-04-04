@@ -12,39 +12,28 @@ class BookListingCellViewModel {
     private let item: Item
     let title: String
     
+    init(_ item: Item) {
+        self.item = item
+        self.title = item.title
+    }
+    
     var authors: String {
         var names = "By: "
         let authorNames = item.authors.map { $0.name }.joined(separator: ", ")
         names.append(authorNames)
-        return names
+        return item.authors.isEmpty ? "": names
     }
     
     var narrators: String {
         var names = "With: "
         let narratorNames = item.narrators.map { $0.name }.joined(separator: ", ")
         names.append(narratorNames)
-        return names
+        return item.narrators.isEmpty ? "" : names
     }
     
-    init(_ item: Item) {
-        self.item = item
-        self.title = item.title
-    }
-    
-    func fetchImage(_ completion: @escaping (UIImage) -> Void) {
+    var url: URL? {
         let part = item.parts.first
-        guard let urlString = part?.cover.url,
-            let imageURL = URL(string: urlString) else { return }
-        
-        DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: imageURL) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        completion(image)
-                    }
-                }
-            }
-        }
-        
+        let urlString = part?.cover.url ?? ""
+        return URL(string: urlString)
     }
 }

@@ -9,44 +9,54 @@
 import Foundation
 
 protocol BookListingViewModelDelegate: NSObject {
-    func didFetchBookList(_ nextPageToken: String, title: String, totalCount: Int, viewModel: [BookListingCellViewModel])
+    func didFetchBookList(totalCount: Int, viewModel: [BookListingCellViewModel])
     func bookListFetchFailed(with error: String)
     
 }
 
 class BookListingViewModel {
     
-    public private(set) var bookListingCellViewModel: [BookListingCellViewModel] = []
-    private let client: APIClientProtocol
     weak var delegate: BookListingViewModelDelegate?
     
+    public private(set) var bookListingCellViewModel: [BookListingCellViewModel] = []
+    
+    private let client: APIClientProtocol
+    private var isFetchInProgress = false
+    private var nextPageToken = ""
+    
+    internal let alertTitle = "Error Log"
+    internal let headerTitle = "Query: Harry"
     
     init(client: APIClientProtocol = APIClient()) {
         self.client = client
     }
     
-    func fetchBookList(_ nextPageToken: String? = nil) {
-        let nextPageToken = nextPageToken ?? ""
+    func fetchBookList() {
+        
+        guard !isFetchInProgress else { return }
+        
+        isFetchInProgress = true
+        
         let requestBuilder: RequestBuilder
-        var parameter: Parameters = ["query":"harry"]
+        var parameters = [Parameter(key: "query", value: "harry"),
+                          Parameter(key: "page", value: nextPageToken)]
         
         if !nextPageToken.isEmpty {
-            parameter["page"] = nextPageToken
-            requestBuilder = RequestBuilder(parameters: parameter)
+            requestBuilder = RequestBuilder(parameters: parameters)
         } else {
-            requestBuilder = RequestBuilder(parameters: parameter)
+            _ = parameters.popLast()
+            requestBuilder = RequestBuilder(parameters: parameters)
         }
         
         client.fetchBookList(with: requestBuilder) { [weak self] (result) in
             guard let self = self else { return }
             switch result {
                 case .success(let book):
-                    let title = "Query: \(book.query)".capitalized
+                    self.isFetchInProgress = false
+                    self.nextPageToken = book.nextPageToken
                     self.bookListingCellViewModel = book.items.map { BookListingCellViewModel($0) }
                     DispatchQueue.main.async {
-                        self.delegate?.didFetchBookList(book.nextPageToken,
-                                                        title: title,
-                                                        totalCount: book.totalCount,
+                        self.delegate?.didFetchBookList(totalCount: book.totalCount,
                                                         viewModel: self.bookListingCellViewModel)
                 }
                 case .failure(let error):
