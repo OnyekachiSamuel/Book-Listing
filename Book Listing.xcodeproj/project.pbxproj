@@ -24,6 +24,10 @@
 		DD81F6372435C3F1002EA5F4 /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6362435C3F1002EA5F4 /* MockAPIClient.swift */; };
 		DD81F6392435C579002EA5F4 /* BookListingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6382435C579002EA5F4 /* BookListingViewModelTests.swift */; };
 		DD81F6402435CA23002EA5F4 /* MockAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F63F2435CA23002EA5F4 /* MockAPIClientTests.swift */; };
+		DD81F6422435F087002EA5F4 /* BookListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F6412435F087002EA5F4 /* BookListingCell.swift */; };
+		DD81F64424361021002EA5F4 /* BookListingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F64324361021002EA5F4 /* BookListingHeaderView.swift */; };
+		DD81F64624361725002EA5F4 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F64524361725002EA5F4 /* Loader.swift */; };
+		DD81F64924368E4B002EA5F4 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81F64824368E4B002EA5F4 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,10 @@
 		DD81F6362435C3F1002EA5F4 /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
 		DD81F6382435C579002EA5F4 /* BookListingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListingViewModelTests.swift; sourceTree = "<group>"; };
 		DD81F63F2435CA23002EA5F4 /* MockAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClientTests.swift; sourceTree = "<group>"; };
+		DD81F6412435F087002EA5F4 /* BookListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListingCell.swift; sourceTree = "<group>"; };
+		DD81F64324361021002EA5F4 /* BookListingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListingHeaderView.swift; sourceTree = "<group>"; };
+		DD81F64524361725002EA5F4 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		DD81F64824368E4B002EA5F4 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +148,7 @@
 			children = (
 				DD81F5EE243408D7002EA5F4 /* Global */,
 				DD81F5EF243408E4002EA5F4 /* Screens */,
-				DD81F5F0243408FF002EA5F4 /* Utilities */,
+				DD81F5F0243408FF002EA5F4 /* Utility */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -208,11 +216,12 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		DD81F5F0243408FF002EA5F4 /* Utilities */ = {
+		DD81F5F0243408FF002EA5F4 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				DD81F64724368E2C002EA5F4 /* Extensions */,
 			);
-			path = Utilities;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		DD81F5F124340B4E002EA5F4 /* BookListing */ = {
@@ -253,8 +262,19 @@
 		DD81F5F524340C71002EA5F4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DD81F6412435F087002EA5F4 /* BookListingCell.swift */,
+				DD81F64324361021002EA5F4 /* BookListingHeaderView.swift */,
+				DD81F64524361725002EA5F4 /* Loader.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DD81F64724368E2C002EA5F4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD81F64824368E4B002EA5F4 /* UIImageView+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,14 +381,18 @@
 				DD81F62724347790002EA5F4 /* Narrator.swift in Sources */,
 				DD81F63324351E58002EA5F4 /* BookListingCellViewModel.swift in Sources */,
 				DD81F5C924340805002EA5F4 /* BookListingController.swift in Sources */,
+				DD81F6422435F087002EA5F4 /* BookListingCell.swift in Sources */,
 				DD81F62924347947002EA5F4 /* Book.swift in Sources */,
 				DD81F6372435C3F1002EA5F4 /* MockAPIClient.swift in Sources */,
+				DD81F64424361021002EA5F4 /* BookListingHeaderView.swift in Sources */,
 				DD81F62D2434C61F002EA5F4 /* APIClient.swift in Sources */,
 				DD81F5C524340805002EA5F4 /* AppDelegate.swift in Sources */,
+				DD81F64924368E4B002EA5F4 /* UIImageView+Extension.swift in Sources */,
 				DD81F62B24347992002EA5F4 /* Item.swift in Sources */,
 				DD81F62524347740002EA5F4 /* Author.swift in Sources */,
 				DD81F62F2434C7D7002EA5F4 /* RequestBuilder.swift in Sources */,
 				DD81F5C724340805002EA5F4 /* SceneDelegate.swift in Sources */,
+				DD81F64624361725002EA5F4 /* Loader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
