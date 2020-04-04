@@ -14,7 +14,7 @@ class BookListingCellViewModelTests: XCTestCase {
     let authors = [Author(name: "John"), Author(name: "Newman"), Author(name: "Greg")]
     let narrators = [Narrator(name: "Kachi"), Narrator(name: "CJ")]
     let parts: [Part] = {
-        let coverImage = CoverImage(url: "hhhh", height: 650, width: 380)
+        let coverImage = CoverImage(url: "https://www.storytel.se/images/9781839520716/640x640/cover.jpg", height: 650, width: 380)
         return [Part(cover: coverImage)]
     }()
     
@@ -35,7 +35,24 @@ class BookListingCellViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel?.authors, "By: John, Newman, Greg")
     }
     
+    func testEmptyAuthorsName() throws {
+        let item = Item(authors: [], narrators: narrators, parts: parts, title: "Harry")
+        viewModel = BookListingCellViewModel(item)
+        XCTAssertEqual(viewModel?.authors, "")
+    }
+    
     func testNarratorsName() throws {
         XCTAssertEqual(viewModel?.narrators, "With: Kachi, CJ")
+    }
+    
+    func testEmptyNarratorsName() throws {
+        let item = Item(authors: authors, narrators: [], parts: parts, title: "Harry")
+        viewModel = BookListingCellViewModel(item)
+        XCTAssertEqual(viewModel?.narrators, "")
+    }
+    
+    func testImageURL() throws {
+        let url = URL(string: "https://www.storytel.se/images/9781839520716/640x640/cover.jpg")!
+        XCTAssertEqual(viewModel?.url, url)
     }
 }

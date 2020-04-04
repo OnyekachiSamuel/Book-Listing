@@ -29,7 +29,7 @@ class MockAPIClientTests: XCTestCase {
     }
 
     func testUnknownError() throws {
-        let requestBuilder = RequestBuilder(parameters: ["query":"harry"])
+        let requestBuilder = RequestBuilder(parameters: [Parameter(key: "query", value: "harry")])
         mockAPIClient?.fetchBookList(with: requestBuilder, completion: { result in
             switch result {
                 case .success(_):
@@ -41,7 +41,7 @@ class MockAPIClientTests: XCTestCase {
     }
     
     func testSuccessfulRequest() throws {
-        let requestBuilder = RequestBuilder(parameters: ["query":"harry"])
+        let requestBuilder = RequestBuilder(parameters: [Parameter(key: "query", value: "harry")])
         let item = Item(authors: authors, narrators: narrators, parts: parts, title: "Harry")
         let book = Book(items: [item], nextPageToken: "HJDJIEJE", totalCount: 38, query: "harry")
         mockAPIClient?.book = book
