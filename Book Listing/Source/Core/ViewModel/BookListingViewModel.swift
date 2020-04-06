@@ -36,10 +36,10 @@ class BookListingViewModel {
         var parameters = [Parameter(key: "query", value: "harry"),
                           Parameter(key: "page", value: nextPageToken)]
         
-        if !nextPageToken.isEmpty {
+        if nextPageToken.isEmpty {
+            _ = parameters.popLast()
             requestBuilder = RequestBuilder(parameters: parameters)
         } else {
-            _ = parameters.popLast()
             requestBuilder = RequestBuilder(parameters: parameters)
         }
         

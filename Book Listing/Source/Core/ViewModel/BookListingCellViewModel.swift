@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookListingCellViewModel {
+struct BookListingCellViewModel {
     private let item: Item
     let title: String
     

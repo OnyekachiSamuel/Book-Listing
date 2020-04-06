@@ -65,9 +65,16 @@ extension BookListingController: BookListingViewModelDelegate {
             loader.stopAnimating()
         }
         
-        self.bookListingCellViewModel.append(contentsOf: viewModel)
+        var indexPath: [IndexPath] = []
+        let count = bookListingCellViewModel.isEmpty ? 0: bookListingCellViewModel.count - 1
+        
+        for (index, _) in viewModel.enumerated() {
+            indexPath.append(IndexPath(row: count + index, section: 0))
+        }
+
         self.totalCount = totalCount
-        self.tableView.reloadData()
+        self.bookListingCellViewModel.append(contentsOf: viewModel)
+        self.tableView.insertRows(at: indexPath, with: .automatic)
     }
     
     func bookListFetchFailed(with error: String) {
@@ -96,12 +103,13 @@ extension BookListingController: BookListingViewModelDelegate {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         let spinner = UIActivityIndicatorView(style: .medium)
-        spinner.frame = CGRect(x: 0.0, y: 0.0, width: tableView.bounds.width, height: 44.0)
+        spinner.frame = CGRect(x: 0.0, y: 0.0, width: tableView.bounds.width, height: 100.0)
+        spinner.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
         
         let lastSectionIndex = tableView.numberOfSections - 1
         let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
         
-        if bookListingCellViewModel.count == totalCount + 2 {
+        if bookListingCellViewModel.count >= totalCount {
             tableView.tableFooterView?.isHidden = true
             return
         }
