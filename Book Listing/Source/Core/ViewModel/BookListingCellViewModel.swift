@@ -33,7 +33,6 @@ struct BookListingCellViewModel {
     
     var url: URL? {
         let part = item.parts.first
-        let urlString = part?.cover.url ?? ""
-        return URL(string: urlString)
+        return part?.cover.url
     }
 }

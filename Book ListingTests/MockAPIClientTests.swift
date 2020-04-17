@@ -16,7 +16,7 @@ class MockAPIClientTests: XCTestCase {
     let authors = [Author(name: "John"), Author(name: "Newman"), Author(name: "Greg")]
     let narrators = [Narrator(name: "Kachi"), Narrator(name: "CJ")]
     let parts: [Part] = {
-        let coverImage = CoverImage(url: "hhhh", height: 650, width: 380)
+        let coverImage = CoverImage(url: URL(string: "https://www.storytel.se/images/9781839520716/640x640/cover.jpg")!, height: 650, width: 380)
         return [Part(cover: coverImage)]
     }()
     

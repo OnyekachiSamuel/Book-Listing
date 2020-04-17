@@ -54,11 +54,11 @@ class APIClient: APIClientProtocol {
             
             guard let data = data,
                 let result = try? JSONDecoder().decode(Book.self, from: data) else {
-                    completion(Result.failure(.noData))
+                    completion(.failure(.noData))
                     return
             }
             
-            completion(Result.success(result))
+            completion(.success(result))
         }
         task.resume()
     }
